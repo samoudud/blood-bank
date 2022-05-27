@@ -19,7 +19,7 @@ const DonorBanner = () => {
     return (
         <div className='DonorBanner'>
             <Typography sx={{ color: '#18183A', margin: '20px 0 40px 0', fontSize: '42px', fontWeight: '700' }} variant="h3" component="div" >
-                Avaiable Blood Donors
+                Available Blood Donors
             </Typography>
             <Container>
                 <Grid container spacing={2}>

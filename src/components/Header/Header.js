@@ -3,34 +3,26 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import logo from '../../images/logo.png'
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
+
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
 
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
-    };
+
 
     return (
         <AppBar sx={{ background: '#18183A', '&:hover': { background: '#18183A' } }} position="static">
@@ -74,7 +66,8 @@ const Header = () => {
                         >
                             <NavLink style={{ color: 'Black', textDecoration: 'none', padding: '0 5px' }} to='/'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Home</MenuItem></NavLink>
                             <NavLink style={{ color: 'Black', textDecoration: 'none', padding: '0 5px' }} to='/donor'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Donor</MenuItem></NavLink>
-                            <NavLink style={{ color: 'Black', background: '#E33D3C', textDecoration: 'none', padding: '0 5px', borderRadius: '5px' }} to='/register'><MenuItem >Apply As Donor</MenuItem></NavLink>
+                            <NavLink style={{ color: 'Black', textDecoration: 'none', padding: '0 5px' }} to='/donor'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Dashboard</MenuItem></NavLink>
+                            <NavLink style={{ color: 'black', textDecoration: 'none', padding: '0 5px', borderRadius: '5px' }} to='/register'><MenuItem >Donate</MenuItem></NavLink>
                         </Menu>
                     </Box>
                     {/* MObile Menu End */}
@@ -88,11 +81,12 @@ const Header = () => {
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Home</MenuItem></NavLink>
                         <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/donor'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Donor</MenuItem></NavLink>
-                        <NavLink style={{ color: 'white', background: '#E33D3C', textDecoration: 'none', padding: '0 5px', borderRadius: '5px' }} to='/register'><MenuItem >Apply As Donor</MenuItem></NavLink>
+                        <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/donor'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Dashboard</MenuItem></NavLink>
+                        <NavLink style={{ color: 'white', background: '#E33D3C', textDecoration: 'none', padding: '0 5px', borderRadius: '5px' }} to='/register'><MenuItem >Donate</MenuItem></NavLink>
                     </Box>
                     {/* Desktop Menu End */}
 
-                    <Box sx={{ flexGrow: 0 }}>
+                    <Box >
                         <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/login'><MenuItem sx={{ '&:hover': { color: 'red' } }}> Login <i className="fa-solid fa-arrow-right-to-bracket"></i></MenuItem></NavLink>
 
                     </Box>
