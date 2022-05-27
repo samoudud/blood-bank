@@ -1,38 +1,37 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Banner {
+	background: url("/src/images/donation-bg.jpg");
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.hero {
+	padding: 7.5rem 0;
+	background: linear-gradient(
+		to top,
+		rgba(23, 23, 58, 0.98),
+		rgba(23, 23, 58, 0.45)
+	);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.DonorBanner {
+	padding: 2.5rem 0;
+	background: url("/src/images/donor-bg.png");
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.TopDonor{
+	padding: 2.5rem 0;
+	background-position: center;
+	background-size: center;
+	background-repeat: no-repeat;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.donor-img{
+	object-fit: cover;
+	width: 100%;
 }
