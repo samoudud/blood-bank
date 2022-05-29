@@ -1,0 +1,61 @@
+======Register=====
+1. Name
+2. Date of Birth
+3. Gander
+4. Blood Group
+5. Location
+6. Email
+7. Mobile
+8. Last Donation
+9. Number of time donated
+10. Password
+
+
+age calculation
+
+const datas = [
+  {
+    email: "mili@gmail.com",
+  address: "Kotchandpur Jhenaidah",
+  age: "20",
+  bloodGroup: "AB+",
+  gander: "female",
+  lDonate: "1/24/2022",
+  mobile: "017888888888",
+  name: "Friha Sultana",
+  password: "123456"
+},
+{
+  lDonate: "15/6/2022",
+  gander: "male",
+  bloodGroup: "b+",
+  name: "Mehedi Azam",
+  age: "18",
+  address: "Kotchandpur Jhenaidah",
+  mobile: "1581643785",
+  email: "azam@gmail.com",
+  password: "asdfg"
+},
+{
+  lDonate: "5/15/2022",
+  gander: "male",
+  bloodGroup: "b+",
+  name: "Mehedi Azam",
+  age: "18",
+  address: "Kotchandpur Jhenaidah",
+  mobile: "1581643785",
+  email: "azam@gmail.com",
+  password: "asdfg"
+}
+  ]
+  
+const done = datas.filter(data=>{
+  var ageInMilliseconds = new Date() - new Date(data.lDonate);
+  const age = Math.floor(ageInMilliseconds/1000/60/60/24);
+  return age > 90
+})
+
+console.log(done)
+
+
+

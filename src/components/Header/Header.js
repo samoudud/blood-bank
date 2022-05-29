@@ -9,8 +9,11 @@ import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
 import logo from '../../images/logo.png'
 import { NavLink } from 'react-router-dom';
+import useDonor from '../../hooks/useDonor';
+import { Button } from '@mui/material';
 
 const Header = () => {
+    const { user, logOut } = useDonor();
     const [anchorElNav, setAnchorElNav] = React.useState(null);
 
     const handleOpenNavMenu = (event) => {
@@ -21,6 +24,10 @@ const Header = () => {
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
+
+    const handleLogOut = () => {
+        logOut()
+    }
 
 
 
@@ -87,9 +94,16 @@ const Header = () => {
                     {/* Desktop Menu End */}
 
                     <Box >
-                        <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/login'><MenuItem sx={{ '&:hover': { color: 'red' } }}> Login <i className="fa-solid fa-arrow-right-to-bracket"></i></MenuItem></NavLink>
+                        {
+                            user?.name ?
+                                <Button
+                                    sx={{ background: '#E33D3C', '&:hover': { background: '#E33D3C' } }} variant='contained' onClick={handleLogOut}
+                                >Log Out</Button> :
+                                <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/login'><MenuItem sx={{ '&:hover': { color: 'red' } }}> Login <i className="fa-solid fa-arrow-right-to-bracket"></i></MenuItem></NavLink>
+                        }
 
                     </Box>
+
 
 
                 </Toolbar>
