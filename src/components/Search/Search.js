@@ -1,14 +1,34 @@
 import { Button, Container, Grid, MenuItem, TextField } from '@mui/material';
 import React from 'react';
-import { useForm } from 'react-hook-form';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Search = () => {
-    const navigate = useNavigate();
+    const [searchInfo, setSearchInfo] = useState({
+        bloodGroup: '',
+        address: ''
+    });
+    const [bloodGroup, setGroup] = useState('');
+    const [location, setLocation] = useState('')
 
-    const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
-        navigate("/login", { state: data })
+    const handleGroupChange = event => {
+        setGroup(event.target.value);
+        const newRegisterData = { ...searchInfo };
+        newRegisterData['bloodGroup'] = event.target.value;
+        setSearchInfo(newRegisterData);
+    }
+
+    const handleLocationChange = event => {
+        setLocation(event.target.value);
+        const newRegisterData = { ...searchInfo };
+        newRegisterData['address'] = event.target.value;
+        setSearchInfo(newRegisterData);
+    }
+
+    const navigate = useNavigate();
+    const handleSubmit = () => {
+        // navigate("/login", { state: data })
+        navigate(`/donor/${searchInfo.bloodGroup}`)
     }
 
 
@@ -21,8 +41,9 @@ const Search = () => {
                             sx={{ background: 'white', width: '99%' }}
                             id="outlined-select-currency"
                             select
+                            value={bloodGroup}
+                            onChange={handleGroupChange}
                             label="Blood Group"
-                            {...register("group")}
                         >
 
                             <MenuItem value="a+">
@@ -37,7 +58,7 @@ const Search = () => {
                             <MenuItem value="b-">
                                 B-
                             </MenuItem>
-                            <MenuItem value="AB+">
+                            <MenuItem value="ab+">
                                 AB+
                             </MenuItem>
                             <MenuItem value="ab-">
@@ -58,7 +79,8 @@ const Search = () => {
                             id="outlined-select-currency"
                             select
                             label="Location"
-                            {...register("location")}
+                            value={location}
+                            onChange={handleLocationChange}
                         >
 
                             <MenuItem value="dhaka">
@@ -71,7 +93,7 @@ const Search = () => {
                         </TextField>
                     </Grid>
                     <Grid item xs={12} md={2}>
-                        <Button onClick={handleSubmit(onSubmit)} sx={{ width: "99%", height: '100%', background: '#E33D3C', color: 'white' }} variant="outlined">Search</Button>
+                        <Button onClick={handleSubmit} sx={{ width: "99%", height: '100%', background: '#E33D3C', color: 'white' }} variant="outlined">Search</Button>
                     </Grid>
                 </Grid>
             </Container>

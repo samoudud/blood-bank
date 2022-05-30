@@ -5,6 +5,7 @@ import Donor from './components/Donor/Donor';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import Result from './components/Result/Result';
 import DonorProvider from './context/DonorProvider';
 
 function App() {
@@ -16,7 +17,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/donor" element={<Donor />} />
+            <Route path="/search" element={<Donor />} />
+            <Route path="donor/:group" element={<Result />} />
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </BrowserRouter>

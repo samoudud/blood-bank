@@ -60,3 +60,10 @@
 .Register form input {
 	display: block;
 }
+
+.vh-10{
+	height: 10vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}

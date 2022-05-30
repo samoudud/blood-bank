@@ -1,4 +1,3 @@
-import { Info } from "@mui/icons-material";
 import { useState } from "react"
 
 const useCustom = () => {
@@ -10,7 +9,7 @@ const useCustom = () => {
     const registerDonor = (donor, navigate) => {
         setLoading(true);
         setAuthError('');
-        fetch('http://localhost:5000/donors', {
+        fetch('https://kcp-blood-bank-server.herokuapp.com/donors', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -66,6 +65,7 @@ const useCustom = () => {
     return {
         user,
         loading,
+        setLoading,
         authError,
         registerDonor,
         logIn,

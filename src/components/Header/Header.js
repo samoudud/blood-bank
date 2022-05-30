@@ -72,9 +72,16 @@ const Header = () => {
                             }}
                         >
                             <NavLink style={{ color: 'Black', textDecoration: 'none', padding: '0 5px' }} to='/'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Home</MenuItem></NavLink>
-                            <NavLink style={{ color: 'Black', textDecoration: 'none', padding: '0 5px' }} to='/donor'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Donor</MenuItem></NavLink>
-                            <NavLink style={{ color: 'Black', textDecoration: 'none', padding: '0 5px' }} to='/donor'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Dashboard</MenuItem></NavLink>
-                            <NavLink style={{ color: 'black', textDecoration: 'none', padding: '0 5px', borderRadius: '5px' }} to='/register'><MenuItem >Donate</MenuItem></NavLink>
+                            {
+                                user?.name ?
+
+                                    <NavLink style={{ color: 'Black', textDecoration: 'none', padding: '0 5px' }} to='/dashboard'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Dashboard</MenuItem></NavLink>
+                                    :
+                                    <NavLink style={{ color: 'black', textDecoration: 'none', padding: '0 5px', borderRadius: '5px' }} to='/register'><MenuItem >Donate</MenuItem></NavLink>
+                            }
+
+
+
                         </Menu>
                     </Box>
                     {/* MObile Menu End */}
@@ -87,9 +94,16 @@ const Header = () => {
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Home</MenuItem></NavLink>
-                        <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/donor'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Donor</MenuItem></NavLink>
-                        <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/donor'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Dashboard</MenuItem></NavLink>
-                        <NavLink style={{ color: 'white', background: '#E33D3C', textDecoration: 'none', padding: '0 5px', borderRadius: '5px' }} to='/register'><MenuItem >Donate</MenuItem></NavLink>
+                        {
+                            user?.name ?
+
+                                <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/Dashboard'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Dashboard</MenuItem></NavLink>
+                                :
+                                <NavLink style={{ color: 'white', background: '#E33D3C', textDecoration: 'none', padding: '0 5px', borderRadius: '5px' }} to='/register'><MenuItem >Donate</MenuItem></NavLink>
+                        }
+
+
+
                     </Box>
                     {/* Desktop Menu End */}
 

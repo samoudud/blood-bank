@@ -5,7 +5,7 @@ import useDonor from '../../hooks/useDonor';
 
 const Login = () => {
     const navigate = useNavigate();
-    const { registerDonor, loading, authError, logIn } = useDonor();
+    const { loading, authError, logIn } = useDonor();
     const [loginInfo, setLoginInfo] = useState({});
 
     const handleOnBlur = e => {
