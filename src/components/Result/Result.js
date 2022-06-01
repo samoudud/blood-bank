@@ -4,11 +4,16 @@ import Banner from '../Banner/Banner';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import useDonor from '../../hooks/useDonor';
-import { CircularProgress } from '@mui/material';
+import { Box, Button, CircularProgress, Container, Grid, Typography } from '@mui/material';
+import Donor from '../Donor/Donor';
+import RequestModal from '../RequestModal/RequestModal';
+
+
+
 
 const Result = () => {
     const { loading, setLoading } = useDonor();
-    let params = useParams();
+    const params = useParams();
     const [results, setResult] = useState({})
 
     useEffect(() => {
@@ -18,7 +23,7 @@ const Result = () => {
             .then(data => setResult(data))
             .catch(error => console.log(error.message))
             .finally(() => setLoading(false));
-    }, [params.group]);
+    }, [params?.group]);
 
 
 
@@ -37,12 +42,28 @@ const Result = () => {
                         </div>
                     </div>
                 }
-                {
-                    results.length > 0 ?
-                        results.map(result => <p key={result._id}>{result.name}</p>)
-                        :
-                        !loading && <div className='vh-10'>Donor Not Found !</div>
-                }
+                <Container>
+                    {
+                        !loading &&
+                        <Box>
+                            <Typography sx={{ color: '#18183A', margin: '25px 0', fontSize: '24px', fontWeight: '700', color: 'red', textAlign: 'center' }} variant="h3" component="div" >
+                                {results.length} Donor Not Found !
+                            </Typography>
+                            <RequestModal bloodGroup={params?.group} />
+                        </Box>
+                    }
+                    <Grid container spacing={2}>
+                        {
+                            results.length > 0 ?
+                                results.map(result => <Donor key={result._id} donor={result} />)
+                                :
+                                !loading && <Typography sx={{ color: '#18183A', margin: '75px 0', fontSize: '24px', fontWeight: '700', color: 'red' }} variant="h3" component="div" >
+                                    Donor Not Found !
+                                </Typography>
+                        }
+                    </Grid>
+                </Container>
+
             </div>
             <Footer></Footer>
         </div>

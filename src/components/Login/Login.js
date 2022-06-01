@@ -17,7 +17,6 @@ const Login = () => {
     }
 
     const handleLogin = e => {
-        console.log(loginInfo)
         logIn(navigate, loginInfo)
         e.preventDefault();
     }

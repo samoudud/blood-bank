@@ -72,7 +72,7 @@ const Register = () => {
                                     sx={{ width: '75%', m: 1 }}
                                     label="Your Name"
                                     required
-                                    name='name'
+                                    name='displayName'
                                     onInput={handleOnBlur} variant="outlined"
                                 />
                                 <TextField

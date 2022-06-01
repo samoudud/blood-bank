@@ -73,7 +73,7 @@ const Header = () => {
                         >
                             <NavLink style={{ color: 'Black', textDecoration: 'none', padding: '0 5px' }} to='/'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Home</MenuItem></NavLink>
                             {
-                                user?.name ?
+                                user?.email ?
 
                                     <NavLink style={{ color: 'Black', textDecoration: 'none', padding: '0 5px' }} to='/dashboard'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Dashboard</MenuItem></NavLink>
                                     :
@@ -95,9 +95,9 @@ const Header = () => {
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Home</MenuItem></NavLink>
                         {
-                            user?.name ?
+                            user?.email ?
 
-                                <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/Dashboard'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Dashboard</MenuItem></NavLink>
+                                <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/dashboard'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Dashboard</MenuItem></NavLink>
                                 :
                                 <NavLink style={{ color: 'white', background: '#E33D3C', textDecoration: 'none', padding: '0 5px', borderRadius: '5px' }} to='/register'><MenuItem >Donate</MenuItem></NavLink>
                         }
@@ -109,7 +109,7 @@ const Header = () => {
 
                     <Box >
                         {
-                            user?.name ?
+                            user?.email ?
                                 <Button
                                     sx={{ background: '#E33D3C', '&:hover': { background: '#E33D3C' } }} variant='contained' onClick={handleLogOut}
                                 >Log Out</Button> :
