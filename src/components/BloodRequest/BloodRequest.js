@@ -1,4 +1,4 @@
-import { CircularProgress, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { CircularProgress, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useDonor from '../../hooks/useDonor';
 import TableData from '../TableData/TableData';
@@ -18,7 +18,7 @@ const BloodRequest = () => {
             .catch(error => console.log(error.message))
             .finally(() => setLoading(false))
 
-    }, [userInfo?.email]);
+    }, []);
 
     if (loading) {
         return <div>
@@ -29,7 +29,9 @@ const BloodRequest = () => {
     }
     return (
         <div>
-            <h2>Total Blood Request: {req?.length}</h2>
+            <Typography sx={{ color: '#18183A', margin: '40px 0', fontSize: '36px', fontWeight: '700' }} variant="h3" component="div" >
+                Total Blood Request: {req?.length}
+            </Typography>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="Appointments table">
                     <TableHead>

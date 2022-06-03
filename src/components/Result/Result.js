@@ -4,7 +4,7 @@ import Banner from '../Banner/Banner';
 import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 import useDonor from '../../hooks/useDonor';
-import { Box, Button, CircularProgress, Container, Grid, Typography } from '@mui/material';
+import { Box, CircularProgress, Container, Grid, Typography } from '@mui/material';
 import Donor from '../Donor/Donor';
 import RequestModal from '../RequestModal/RequestModal';
 

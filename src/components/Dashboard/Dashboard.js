@@ -17,10 +17,12 @@ import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import logo from '../../images/logo-2.png'
 import { Link, Outlet } from 'react-router-dom';
 import { Button } from '@mui/material';
+import useDonor from '../../hooks/useDonor';
 
 const drawerWidth = 240;
 
 function Dashboard(props) {
+    const { userInfo } = useDonor()
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
@@ -29,7 +31,7 @@ function Dashboard(props) {
     };
 
     const drawer = (
-        <div>
+        <div >
             <Toolbar>
                 <Link style={{ color: 'Black', textDecoration: 'none', padding: '0 5px' }} to='/'><img src={logo} style={{ width: '100%' }} alt="" /></Link>
 
@@ -45,13 +47,19 @@ function Dashboard(props) {
                 <Link style={{ textDecoration: 'none' }} to='bloodRequest' ><Button color="inherit"><ShoppingBasketIcon />  Blood Request</Button></Link>
                 <Divider />
 
-                <Link style={{ textDecoration: 'none' }} to='requests' ><Button color="inherit"><ShoppingBasketIcon />  Manage Request</Button></Link>
-                <Divider />
+                {
+                    userInfo?.admin &&
+                    <div>
+                        <Link style={{ textDecoration: 'none' }} to='requests' ><Button color="inherit"><ShoppingBasketIcon />  Manage Request</Button></Link>
+                        <Divider />
 
-                <Link style={{ textDecoration: 'none' }} to='manageDonors' ><Button color="inherit"><ManageAccountsIcon /> Manage Donors</Button></Link>
+                        <Link style={{ textDecoration: 'none' }} to='manageDonors' ><Button color="inherit"><ManageAccountsIcon /> Manage Donors</Button></Link>
+                        <Divider />
 
-                <Link style={{ textDecoration: 'none' }} to={`makeAdmin`} ><Button color="inherit"><AdminPanelSettingsIcon />Make Admin</Button></Link>
-                <Divider />
+                        <Link style={{ textDecoration: 'none' }} to={`makeAdmin`} ><Button color="inherit"><AdminPanelSettingsIcon />Make Admin</Button></Link>
+                        <Divider />
+                    </div>
+                }
 
             </Box>
         </div>

@@ -4,7 +4,6 @@ import { getAuth, createUserWithEmailAndPassword, signOut, onAuthStateChanged, s
 
 initializeFirebase();
 const useCustom = () => {
-
     const [user, setUser] = useState({});
     const [userInfo, setUserInfo] = useState({})
     const [loading, setLoading] = useState(false);
@@ -112,10 +111,11 @@ const useCustom = () => {
             .then(res => res.json())
             .then(data => {
                 setUserInfo(data)
-                // console.log(data)
             })
             .catch(error => { })
-    }, [user?.email])
+    }, [user?.email]);
+
+
 
     return {
         user,

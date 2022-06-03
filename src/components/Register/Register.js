@@ -114,7 +114,7 @@ const Register = () => {
                                     <MenuItem value="b-">
                                         B-
                                     </MenuItem>
-                                    <MenuItem value="AB+">
+                                    <MenuItem value="ab+">
                                         AB+
                                     </MenuItem>
                                     <MenuItem value="ab-">

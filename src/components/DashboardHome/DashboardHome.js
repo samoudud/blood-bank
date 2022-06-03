@@ -7,7 +7,11 @@ const DashboardHome = () => {
         <div>
             <h2>Hi {user?.displayName} ! Welcome Back</h2>
             {
-                userInfo?.bloodGroup && <h3>Your Blood Group is: {userInfo?.bloodGroup.toUpperCase()}</h3>
+                userInfo?.bloodGroup &&
+                <div>
+                    <h3>Your Blood Group is: {userInfo?.bloodGroup.toUpperCase()}</h3>
+                    <h3>Your Last Donation Date is: {userInfo?.lDonate}</h3>
+                </div>
             }
         </div>
     );

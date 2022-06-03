@@ -57,5 +57,136 @@ const done = datas.filter(data=>{
 
 console.log(done)
 
+const [groups, setGroups] = useState({
+        a: 0,
+        aa: 0,
+        b: 0,
+        bb: 0,
+        ab: 0,
+        abb: 0,
+        o: 0,
+        oo: 0,
+
+    });
+
+    useEffect(() => {
+        fetch(`https://kcp-blood-bank-server.herokuapp.com/allDonor`)
+            .then(res => res.json())
+            .then(data => {
+                setDonor(data);
+                if (data) {
+                    data.forEach(dt => {
+                        if (dt.bloodGroup === 'a+') {
+                            setGroups({
+                                a: parseInt(groups.a) + 1,
+                                aa: groups.aa,
+                                b: groups.b,
+                                bb: groups.bb,
+                                ab: groups.ab,
+                                abb: groups.abb,
+                                o: groups.o,
+                                oo: groups.oo
+                            })
+                        }
+                        else if (dt.bloodGroup === 'a-') {
+                            console.log(groups)
+                            setGroups({
+                                a: groups.a,
+                                aa: groups.aa + 1,
+                                b: groups.b,
+                                bb: groups.bb,
+                                ab: groups.ab,
+                                abb: groups.abb,
+                                o: groups.o,
+                                oo: groups.oo
+                            })
+                        }
+                        else if (dt.bloodGroup === 'b+') {
+                            console.log(groups)
+                            setGroups({
+                                a: groups.a,
+                                aa: groups.aa,
+                                b: parseInt(groups.a) + 1,
+                                bb: groups.bb,
+                                ab: groups.ab,
+                                abb: groups.abb,
+                                o: groups.o,
+                                oo: groups.oo
+                            })
+                        }
+                        else if (dt.bloodGroup === 'b-') {
+                            console.log(groups)
+                            setGroups({
+                                a: groups.a,
+                                aa: groups.aa,
+                                b: groups.b,
+                                bb: groups.bb + 1,
+                                ab: groups.ab,
+                                abb: groups.abb,
+                                o: groups.o,
+                                oo: groups.oo
+                            })
+                        }
+                        else if (dt.bloodGroup === 'ab+') {
+                            console.log(groups)
+                            setGroups({
+                                a: groups.a,
+                                aa: groups.aa,
+                                b: groups.b,
+                                bb: groups.bb,
+                                ab: groups.ab + 1,
+                                abb: groups.abb,
+                                o: groups.o,
+                                oo: groups.oo
+                            })
+                        }
+                        else if (dt.bloodGroup === 'ab-') {
+                            console.log(groups)
+                            setGroups({
+                                a: groups.a,
+                                aa: groups.aa,
+                                b: groups.b,
+                                bb: groups.bb,
+                                ab: groups.ab,
+                                abb: groups.abb + 1,
+                                o: groups.o,
+                                oo: groups.oo
+                            })
+                        }
+                        else if (dt.bloodGroup === 'o+') {
+                            console.log(groups)
+                            setGroups({
+                                a: groups.a,
+                                aa: groups.aa,
+                                b: groups.b,
+                                bb: groups.bb,
+                                ab: groups.ab,
+                                abb: groups.abb,
+                                o: groups.o + 1,
+                                oo: groups.oo
+                            })
+                        }
+                        else if (dt.bloodGroup === 'o-') {
+                            console.log(groups)
+                            setGroups({
+                                a: groups.a,
+                                aa: groups.aa,
+                                b: groups.b,
+                                bb: groups.bb,
+                                ab: groups.ab,
+                                abb: groups.abb,
+                                o: groups.o,
+                                oo: groups.oo + 1
+                            })
+                        }
+                        else {
+
+                        }
+                    })
+                }
+            })
+            .catch(error => console.log(error.message))
+    }, [])
+
 
 

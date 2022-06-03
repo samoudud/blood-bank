@@ -1,4 +1,4 @@
-import { Button, CircularProgress, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Button, CircularProgress, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import useDonor from '../../hooks/useDonor';
 
@@ -48,7 +48,9 @@ const Requests = () => {
     }
     return (
         <div>
-            <h2>Total Blood Request: {req?.length}</h2>
+            <Typography sx={{ color: '#18183A', margin: '40px 0', fontSize: '36px', fontWeight: '700' }} variant="h3" component="div" >
+                Total Blood Request: {req?.length}
+            </Typography>
             <TableContainer component={Paper}>
                 <Table sx={{ minWidth: 650 }} aria-label="Appointments table">
                     <TableHead>
@@ -80,7 +82,7 @@ const Requests = () => {
                                 <TableCell align="center">{re.location}</TableCell>
                                 <TableCell align="center">{re.reason}</TableCell>
                                 <TableCell align="center">{re.status}</TableCell>
-                                <TableCell align="center"><Button onClick={() => handleCancel(re._id)}>Cancel</Button></TableCell>
+                                <TableCell align="center"><Button sx={{ width: '75%', m: 1, p: 1, background: '#E33D3C', color: 'white', '&:hover': { background: '#E33D3C' } }} onClick={() => handleCancel(re._id)}>Cancel</Button></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

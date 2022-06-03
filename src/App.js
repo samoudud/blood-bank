@@ -3,7 +3,6 @@ import './App.css';
 import BloodRequest from './components/BloodRequest/BloodRequest';
 import Dashboard from './components/Dashboard/Dashboard';
 import DashboardHome from './components/DashboardHome/DashboardHome';
-import Donor from './components/Donor/Donor';
 import Home from './components/Home/Home';
 import Login from './components/Login/Login';
 import MakeAdmin from './components/MakeAdmin/MakeAdmin';
@@ -11,6 +10,7 @@ import ManageDonors from './components/ManageDonors/ManageDonors';
 import Register from './components/Register/Register';
 import Requests from './components/Requests/Requests';
 import Result from './components/Result/Result';
+import SeeUpdate from './components/SeeUpdate/SeeUpdate';
 import DonorProvider from './context/DonorProvider';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/search" element={<Donor />} />
+            <Route path="/seeUpdate" element={<SeeUpdate />} />
             <Route path="donors/:group" element={<Result />} />
             <Route path="/dashboard" element={<Dashboard />} >
               <Route path='' element={<DashboardHome />} />

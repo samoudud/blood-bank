@@ -1,8 +1,10 @@
 import { Button, TableCell, TableRow } from '@mui/material';
 import React, { useState } from 'react';
+import useDonor from '../../hooks/useDonor';
 
 const TableData = ({ re }) => {
     const [status, setStatus] = useState(re.status);
+    const { user } = useDonor()
 
     const handleAccept = re => {
         if (re.status === 'pending') {
@@ -14,7 +16,10 @@ const TableData = ({ re }) => {
                 headers: {
                     'content-type': 'application/json'
                 },
-                body: JSON.stringify(re)
+                body: JSON.stringify({
+                    status: re.status,
+                    donor: user.email
+                })
             })
                 .then(res => res.json())
                 .then(data => {
@@ -43,7 +48,7 @@ const TableData = ({ re }) => {
             <TableCell align="center">{re.location}</TableCell>
             <TableCell align="center">{re.reason}</TableCell>
             <TableCell align="center">{status}</TableCell>
-            <TableCell align="center"><Button onClick={() => handleAccept(re)}>Accept</Button></TableCell>
+            <TableCell align="center"><Button sx={{ width: '75%', m: 1, p: 1, background: '#E33D3C', color: 'white', '&:hover': { background: '#E33D3C' } }} onClick={() => handleAccept(re)}>Accept</Button></TableCell>
 
         </TableRow>
     );

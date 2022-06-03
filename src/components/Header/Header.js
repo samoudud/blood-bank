@@ -72,6 +72,7 @@ const Header = () => {
                             }}
                         >
                             <NavLink style={{ color: 'Black', textDecoration: 'none', padding: '0 5px' }} to='/'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Home</MenuItem></NavLink>
+                            <NavLink style={{ color: 'Black', textDecoration: 'none', padding: '0 5px' }} to='/seeUpdate'><MenuItem sx={{ '&:hover': { color: 'red' } }}>SeeUpdate</MenuItem></NavLink>
                             {
                                 user?.email ?
 
@@ -94,6 +95,7 @@ const Header = () => {
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/'><MenuItem sx={{ '&:hover': { color: 'red' } }}>Home</MenuItem></NavLink>
+                        <NavLink style={{ color: 'white', textDecoration: 'none', padding: '0 5px' }} to='/seeUpdate'><MenuItem sx={{ '&:hover': { color: 'red' } }}>SeeUpdate</MenuItem></NavLink>
                         {
                             user?.email ?
 
