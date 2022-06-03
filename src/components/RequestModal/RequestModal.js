@@ -38,7 +38,7 @@ const RequestModal = ({ bloodGroup }) => {
     const handleRequest = (e) => {
         e.preventDefault();
         console.log(reqInfo)
-        fetch('http://localhost:5000/request', {
+        fetch('https://kcp-blood-bank-server.herokuapp.com/request', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -59,7 +59,7 @@ const RequestModal = ({ bloodGroup }) => {
 
     return (
         <div>
-            <Button onClick={handleOpen} sx={{ m: 1, p: 2, background: '#E33D3C', color: 'white', '&:hover': { background: '#E33D3C' } }}>Open modal</Button>
+            <Button onClick={handleOpen} sx={{ m: 1, p: 2, background: '#E33D3C', color: 'white', '&:hover': { background: '#E33D3C' } }}>Send Blood Request</Button>
             <Modal
                 open={open}
                 onClose={handleClose}

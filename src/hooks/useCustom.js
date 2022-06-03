@@ -108,7 +108,7 @@ const useCustom = () => {
     }, []);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/donor/${user?.email}`)
+        fetch(`https://kcp-blood-bank-server.herokuapp.com/donor/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setUserInfo(data)

@@ -9,8 +9,6 @@ import Donor from '../Donor/Donor';
 import RequestModal from '../RequestModal/RequestModal';
 
 
-
-
 const Result = () => {
     const { loading, setLoading } = useDonor();
     const params = useParams();
