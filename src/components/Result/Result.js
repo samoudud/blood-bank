@@ -42,11 +42,13 @@ const Result = () => {
                 }
                 <Container>
                     {
-                        !loading &&
+
                         <Box>
-                            <Typography sx={{ color: '#18183A', margin: '25px 0', fontSize: '24px', fontWeight: '700', color: 'red', textAlign: 'center' }} variant="h3" component="div" >
-                                {results.length} Donor Not Found !
-                            </Typography>
+                            {
+                                results.length > 0 && <Typography sx={{ color: '#18183A', margin: '25px 0', fontSize: '24px', fontWeight: '700', color: 'red', textAlign: 'center' }} variant="h3" component="div" >
+                                    {results.length} Donor Found !
+                                </Typography>
+                            }
                             <RequestModal bloodGroup={params?.group} />
                         </Box>
                     }
@@ -55,7 +57,7 @@ const Result = () => {
                             results.length > 0 ?
                                 results.map(result => <Donor key={result._id} donor={result} />)
                                 :
-                                !loading && <Typography sx={{ color: '#18183A', margin: '75px 0', fontSize: '24px', fontWeight: '700', color: 'red' }} variant="h3" component="div" >
+                                !loading && <Typography sx={{ color: '#18183A', margin: '75px 0', fontSize: '24px', fontWeight: '700', color: 'red', mx: 'auto' }} variant="h3" component="div" >
                                     Donor Not Found !
                                 </Typography>
                         }
